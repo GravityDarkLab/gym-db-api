@@ -1,6 +1,8 @@
 name: Maven Test CI
 
 on:
+  push:
+    branches: ["*"]
   workflow_run:
     workflows: ["Maven Build CI"]
     types:
