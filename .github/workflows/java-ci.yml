@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Java CI
 
 on:
   push:
@@ -15,18 +15,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
         with:
           java-version: "17"
-          distribution: "temurin"
-          cache: "maven"
+        uses: ./.github/actions/setup-jdk/
 
       - name: Cache Maven packages
-        uses: actions/cache@v2
         with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+          path-to-cache: ~/.m2
+        uses: ./.github/actions/cache-maven/
 
       - name: Build with Maven
         run: mvn -B clean install -DskipTests
@@ -47,17 +43,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
         with:
           java-version: "17"
-          distribution: "temurin"
+        uses: ./.github/actions/setup-jdk/
 
       - name: Cache Maven packages
-        uses: actions/cache@v4
         with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+          path-to-cache: ~/.m2
+        uses: ./.github/actions/cache-maven/
 
       - name: Download target directory
         uses: actions/download-artifact@v4
