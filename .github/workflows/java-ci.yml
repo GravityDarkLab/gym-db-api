@@ -20,7 +20,7 @@ jobs:
       - name: Cache Maven packages
         with:
           path: ~/.m2
-        uses: ./github/actions/cache-maven/
+        uses: ./.github/actions/cache-maven/
 
       - name: Build with Maven
         run: mvn -B clean install -DskipTests
