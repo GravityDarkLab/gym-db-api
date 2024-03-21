@@ -1,0 +1,16 @@
+name: 'Cache Maven Packages'
+description: 'Caches Maven dependencies to speed up builds.'
+inputs:
+  path-to-cache:
+    description: 'Path to the dependencies to cache'
+    required: false
+    default: '~/.m2'
+runs:
+  using: 'composite'
+  steps:
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ${{ inputs.path-to-cache }}
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-maven-

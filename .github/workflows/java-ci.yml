@@ -18,7 +18,9 @@ jobs:
         uses: ./.github/actions/setup-jdk/
 
       - name: Cache Maven packages
-        uses: ./.github/actions/cache-maven/
+        with:
+          path: ~/.m2
+        uses: ./github/actions/cache-maven/
 
       - name: Build with Maven
         run: mvn -B clean install -DskipTests
