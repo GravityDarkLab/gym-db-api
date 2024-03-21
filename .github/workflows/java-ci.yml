@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: ./.github/actions/checkout-code/
+        uses: actions/checkout@v4
 
       - name: Set up JDK 17
         uses: ./.github/actions/setup-jdk/

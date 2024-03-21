@@ -1,7 +1,0 @@
-name: 'Checkout Code'
-description: 'Checkout code from the repository'
-runs:
-  using: 'composite'
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
