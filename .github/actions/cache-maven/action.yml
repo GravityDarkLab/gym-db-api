@@ -9,7 +9,7 @@ runs:
   using: 'composite'
   steps:
     - name: Cache Maven packages
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: ${{ inputs.path-to-cache }}
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
