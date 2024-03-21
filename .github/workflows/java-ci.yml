@@ -12,21 +12,13 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: ./.github/workflows/checkout-code.yml
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: "17"
-          distribution: "temurin"
-          cache: "maven"
+        uses: ./.github/workflows/setup-jdk.yml
 
       - name: Cache Maven packages
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+        uses: ./.github/workflows/cache-maven.yml
 
       - name: Build with Maven
         run: mvn -B clean install -DskipTests

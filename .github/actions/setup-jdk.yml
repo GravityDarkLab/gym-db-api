@@ -1,0 +1,16 @@
+name: 'Setup JDK'
+description: 'Setup JDK 17 with cache'
+inputs:
+  java-version:
+    description: 'Java version'
+    required: true
+    default: '17'
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: ${{ inputs.java-version }}
+        distribution: 'temurin'
+        cache: 'maven'
