@@ -12,13 +12,13 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: ./.github/actions/checkout-code.yml
+        uses: ./actions/checkout-code.yml
 
       - name: Set up JDK 17
-        uses: ./.github/actions/setup-jdk.yml
+        uses: ./actions/setup-jdk.yml
 
       - name: Cache Maven packages
-        uses: ./.github/actions/cache-maven.yml
+        uses: ./actions/cache-maven.yml
 
       - name: Build with Maven
         run: mvn -B clean install -DskipTests
