@@ -49,7 +49,7 @@ jobs:
 
       - name: Cache Maven packages
         with:
-          path to cache: ~/.m2
+          path-to-cache: ~/.m2
         uses: ./.github/actions/cache-maven/
 
       - name: Download target directory

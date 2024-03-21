@@ -3,7 +3,7 @@ description: 'Caches Maven dependencies to speed up builds.'
 inputs:
   path-to-cache:
     description: 'Path to the dependencies to cache'
-    required: false
+    required: true
     default: '~/.m2'
 runs:
   using: 'composite'
