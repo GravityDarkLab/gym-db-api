@@ -1,1 +1,13 @@
+version: "3.8"
+
 services:
+  app:
+    build: .
+    ports:
+      - "8081:8081"
+    volumes:
+      - .:/app
+      - maven_cache:/root/.m2
+
+volumes:
+  maven_cache:
