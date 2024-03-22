@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class GymdbApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GymdbApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(GymdbApplication.class, args);
+  }
 }
