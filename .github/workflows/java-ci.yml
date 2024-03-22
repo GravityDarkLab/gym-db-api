@@ -22,7 +22,7 @@ jobs:
         uses: axel-op/googlejavaformat-action@v3.6.0
         with:
           args: "--skip-sorting-imports --replace --skip-reflowing-long-strings --skip-javadoc-formatting"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
   build:
     name: Build with Maven
