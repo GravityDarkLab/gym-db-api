@@ -2,13 +2,35 @@ name: Java CI
 
 on:
   push:
-    branches: ["*"]
+    branches: [main]
   pull_request:
     branches: [main]
 
 jobs:
-  build:
+
+  format:
+    name: Code Formatting
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Format with google-java-format
+        uses: axel-op/googlejavaformat-action@v3
+        with:
+          args: "--skip-sorting-imports --replace --skip-reflowing-long-strings --skip-javadoc-formatting"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  build:
+    name: Build with Maven
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      statuses: write
 
     steps:
       - name: Checkout code
@@ -27,7 +49,7 @@ jobs:
       - name: Build with Maven
         run: mvn -B clean install -DskipTests
 
-      - name: Upload target directory
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: maven-target
@@ -35,6 +57,7 @@ jobs:
             **/target
 
   test:
+    name: Run Tests
     needs: build
     runs-on: ubuntu-latest
 
@@ -71,6 +94,7 @@ jobs:
             **/target/failsafe-reports
 
   report:
+    name: Publish Test Results
     needs: test
     runs-on: ubuntu-latest
 
@@ -80,6 +104,7 @@ jobs:
         with:
           name: test-results
           path: test-results
+
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
