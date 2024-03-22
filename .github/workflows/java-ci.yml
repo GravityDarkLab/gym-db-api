@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  lint:
+  checkstyle:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,10 +17,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Super-linter
-        uses: super-linter/super-linter@v6.3.0
+      - name: Check code style
+        uses: dbelyaev/action-checkstyle@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          level: warning
 
   build:
     runs-on: ubuntu-latest
