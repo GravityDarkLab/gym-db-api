@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
 
       - name: Format with google-java-format
-        uses: axel-op/googlejavaformat-action@v3
+        uses: axel-op/googlejavaformat-action@v3.6.0
         with:
           args: "--skip-sorting-imports --replace --skip-reflowing-long-strings --skip-javadoc-formatting"
           github-token: ${{ secrets.GITHUB_TOKEN }}
