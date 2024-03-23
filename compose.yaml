@@ -8,6 +8,9 @@ services:
     volumes:
       - .:/app
       - maven_cache:/root/.m2
+    environment:
+      SPRING_DATA_MONGODB_DATABASE: ${SPRING_DATA_MONGODB_DATABASE}
+      SPRING_DATA_MONGODB_URI: ${SPRING_DATA_MONGODB_URI}
 
 volumes:
   maven_cache:

@@ -2,7 +2,7 @@ name: Java CI
 
 on:
   push:
-    branches: [main]
+    branches: ["main"]
   pull_request:
     branches: [main]
 
@@ -48,6 +48,9 @@ jobs:
 
       - name: Build with Maven
         run: mvn -B clean install -DskipTests
+        env:
+          SPRING_DATA_MONGODB_DATABASE: ${{ secrets.SPRING_DATA_MONGODB_DATABASE }}
+          SPRING_DATA_MONGODB_URI: ${{ secrets.SPRING_DATA_MONGODB_URI }}
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
@@ -83,6 +86,9 @@ jobs:
 
       - name: Test with Maven
         run: mvn -B test
+        env:
+            SPRING_DATA_MONGODB_DATABASE: ${{ secrets.SPRING_DATA_MONGODB_DATABASE }}
+            SPRING_DATA_MONGODB_URI: ${{ secrets.SPRING_DATA_MONGODB_URI }}
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
