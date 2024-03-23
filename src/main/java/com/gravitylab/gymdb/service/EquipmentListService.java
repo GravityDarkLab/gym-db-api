@@ -15,34 +15,32 @@ import java.util.Optional;
 @Slf4j
 public class EquipmentListService {
 
-    @Autowired
-    private EquipmentListRepository equipmentListRepository;
+  @Autowired private EquipmentListRepository equipmentListRepository;
 
-    public List<EquipmentList> getAllEquipmentList() {
-        try {
-            return equipmentListRepository.findAll();
-        } catch (Exception e) {
-            log.error("Error occurred while fetching equipment list", e);
-            return new ArrayList<>();
-        }
+  public List<EquipmentList> getAllEquipmentList() {
+    try {
+      return equipmentListRepository.findAll();
+    } catch (Exception e) {
+      log.error("Error occurred while fetching equipment list", e);
+      return new ArrayList<>();
     }
+  }
 
-    public Optional<EquipmentList> getEquipmentListByName(String name) {
-        try {
-            return equipmentListRepository.findByName(name);
-        } catch (Exception e) {
-            log.error("Error occurred while fetching equipment list by name", e);
-            return Optional.empty();
-        }
+  public Optional<EquipmentList> getEquipmentListByName(String name) {
+    try {
+      return equipmentListRepository.findByName(name);
+    } catch (Exception e) {
+      log.error("Error occurred while fetching equipment list by name", e);
+      return Optional.empty();
     }
+  }
 
-    public Optional<EquipmentList> getEquipmentListById(ObjectId id) {
-        try {
-            return equipmentListRepository.findById(id);
-        } catch (Exception e) {
-            log.error("Error occurred while fetching equipment list by id", e);
-            return Optional.empty();
-        }
+  public Optional<EquipmentList> getEquipmentListById(ObjectId id) {
+    try {
+      return equipmentListRepository.findById(id);
+    } catch (Exception e) {
+      log.error("Error occurred while fetching equipment list by id", e);
+      return Optional.empty();
     }
-
+  }
 }

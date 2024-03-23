@@ -13,9 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "body-parts")
 public class BodyPart {
 
-    @Id
-    private ObjectId id;
+  @Id private ObjectId id;
 
-    private String name;
-
+  private String name;
 }

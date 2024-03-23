@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface BodyPartRepository extends MongoRepository<BodyPart, ObjectId> {
-    Optional<BodyPart> findByName(String name);
+  Optional<BodyPart> findByName(String name);
 }

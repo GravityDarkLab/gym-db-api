@@ -14,44 +14,43 @@ import java.util.Optional;
 @Slf4j
 public class BodyPartService {
 
-    @Autowired
-    private BodyPartRepository bodyPartRepository;
+  @Autowired private BodyPartRepository bodyPartRepository;
 
-        public List<BodyPart> getAllBodyParts() {
-            try {
-                return bodyPartRepository.findAll();
-            } catch (Exception e) {
-                log.error("Error occurred while fetching body parts", e);
-                throw e;
-            }
-        }
+  public List<BodyPart> getAllBodyParts() {
+    try {
+      return bodyPartRepository.findAll();
+    } catch (Exception e) {
+      log.error("Error occurred while fetching body parts", e);
+      throw e;
+    }
+  }
 
-        public Optional<BodyPart> getBodyPartById(ObjectId id) {
-            try {
-                return bodyPartRepository.findById(id);
-            } catch (Exception e) {
-                log.error("Error occurred while fetching body part by id", e);
-                throw e;
-            }
-        }
+  public Optional<BodyPart> getBodyPartById(ObjectId id) {
+    try {
+      return bodyPartRepository.findById(id);
+    } catch (Exception e) {
+      log.error("Error occurred while fetching body part by id", e);
+      throw e;
+    }
+  }
 
-        public Optional<BodyPart> getBodyPartByName(String name) {
-            try {
-                return bodyPartRepository.findByName(name);
-            } catch (Exception e) {
-                log.error("Error occurred while fetching body part by name", e);
-                throw e;
-            }
-        }
+  public Optional<BodyPart> getBodyPartByName(String name) {
+    try {
+      return bodyPartRepository.findByName(name);
+    } catch (Exception e) {
+      log.error("Error occurred while fetching body part by name", e);
+      throw e;
+    }
+  }
 
-        public BodyPart addBodyPart(String bodyPartName) {
-            try {
-                BodyPart bodyPart = new BodyPart();
-                bodyPart.setName(bodyPartName);
-                return bodyPartRepository.save(bodyPart);
-            } catch (Exception e) {
-                log.error("Error occurred while adding body part", e);
-                throw e;
-            }
-        }
+  public BodyPart addBodyPart(String bodyPartName) {
+    try {
+      BodyPart bodyPart = new BodyPart();
+      bodyPart.setName(bodyPartName);
+      return bodyPartRepository.save(bodyPart);
+    } catch (Exception e) {
+      log.error("Error occurred while adding body part", e);
+      throw e;
+    }
+  }
 }

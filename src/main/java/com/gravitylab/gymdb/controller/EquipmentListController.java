@@ -17,21 +17,20 @@ import java.util.Optional;
 @RequestMapping("/gym-api/v1/equipment-list")
 public class EquipmentListController {
 
-    @Autowired
-    private EquipmentListService equipmentListService;
+  @Autowired private EquipmentListService equipmentListService;
 
-    @GetMapping
-    public ResponseEntity<List<EquipmentList>> getAllEquipmentList() {
-        return ResponseEntity.ok(equipmentListService.getAllEquipmentList());
-    }
+  @GetMapping
+  public ResponseEntity<List<EquipmentList>> getAllEquipmentList() {
+    return ResponseEntity.ok(equipmentListService.getAllEquipmentList());
+  }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<Optional<EquipmentList>> getEquipmentListByName(@PathVariable String name) {
-        return ResponseEntity.ok(equipmentListService.getEquipmentListByName(name));
-    }
+  @GetMapping("/{name}")
+  public ResponseEntity<Optional<EquipmentList>> getEquipmentListByName(@PathVariable String name) {
+    return ResponseEntity.ok(equipmentListService.getEquipmentListByName(name));
+  }
 
-    @GetMapping("/id/{id}")
-    public ResponseEntity<Optional<EquipmentList>> getEquipmentListById(@PathVariable ObjectId id) {
-        return ResponseEntity.ok(equipmentListService.getEquipmentListById(id));
-    }
+  @GetMapping("/id/{id}")
+  public ResponseEntity<Optional<EquipmentList>> getEquipmentListById(@PathVariable ObjectId id) {
+    return ResponseEntity.ok(equipmentListService.getEquipmentListById(id));
+  }
 }

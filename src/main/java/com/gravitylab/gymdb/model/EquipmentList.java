@@ -12,8 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Document(collection = "equipment-list")
 public class EquipmentList {
-    @Id
-    private ObjectId id;
+  @Id private ObjectId id;
 
-    private String name;
+  private String name;
 }
