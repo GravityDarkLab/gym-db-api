@@ -5,3 +5,6 @@
 ```bash
 docker-compose up --build
 ```
+```bash
+docker pull achraflab/gym-db:latest
+```
