@@ -25,10 +25,14 @@ jobs:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_TOKEN}}
 
+        - name: List files in the repository
+          run: ls -la
+
         - name: Build and push
           uses: docker/build-push-action@v5
           with:
             context: .
+            file: Dockerfile
             push: true
             tags: ${{ secrets.DOCKER_USERNAME }}/gym-db:latest
             build-args: |
