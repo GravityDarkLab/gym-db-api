@@ -44,4 +44,6 @@ jobs:
             build-args: |
               SPRING_DATA_MONGODB_DATABASE=${{ secrets.SPRING_DATA_MONGODB_DATABASE }}
               SPRING_DATA_MONGODB_URI=${{ secrets.SPRING_DATA_MONGODB_URI }}
+            cache-from: type=gha
+            cache-to: type=gha,mode=max
 
