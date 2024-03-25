@@ -9,3 +9,7 @@ docker-compose up --build
 ```bash
 docker pull achraflab/gym-db:latest
 ```
+```bash
+docker run -e SPRING_DATA_MONGODB_DATABASE='yourDatabaseName' -e SPRING_DATA_MONGODB_URI='yourMongoDbUri' -p 8081:8081 gym-db --name gym-db
+```
+
